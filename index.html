@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Travel Wheather Or Not</title>
+	<title>Travel Weather</title>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -12,102 +12,108 @@
 </head>
 <body>
 
-<div class="container">
-	<div class="row jumbotron">
-		<div>
-			<h1>Flight Search and Weather App</h1>
-			<h3>Search your next flight and find the weather in your destination</h3>
-		</div>
-	</div>
-	
-
-
-<div class="row addDestination">
-
-		<div class="labelsAndInputs">
+	<div class="container">
+		<div class="row jumbotron">
 			<div>
-				<h4 class="styleBlue">Where do you want to travel? </h4>
+				<h1>Weather App</h1>
+				<h3>Tell us where you want go and I will tell you the weather information</h3>
+			</div>
+		</div>
+        <div>
+        	<button type="text" id="myweather" class="btn btn-primary">Weather-Forcast</button>
+        
+		
+	    <div class="btn-group">
+			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			     <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu">
+			    <li><a href="#">1-day cast</a></li>
+			    <li><a href="#">2-days cast</a></li>
+			    <li><a href="#">3-5 days cast</a></li>
+			     <li role="separator" class="divider"></li>
+			    <li><a href="#">Separated link</a></li>
+			  </ul>
+		</div> 
+       </div>
+	<div class="row addDestination">
+
+			<div class="labelsAndInputs">
+				<div>
+					<h4 class="styleBlue">Where do you want to travel? </h4>
+				</div>
+
+				<form>
+                   
+	  			 <div class="form-group">
+	  				  <div class="row">
+                        <div class="col-sm-4">
+	    				   <label for="arrivalDestination">Destination</label>
+	    				   <input type="role" class="form-control" id="arrivalDestination">
+	  				    </div>
+	  				  </div>
+	  			</div>
+	  			<div class="form-group">
+	  				<div class="row">
+                        <div class="col-sm-4">
+	    				  <label for="leavingDate">Arrival Date (DD/MM/YY - ex. 01/01/17)</label>
+	    				  <input type="role" class="form-control" id="arrivalDate">
+	  				    </div>
+	  			     </div>
+	  			  </div>
+						
+					<div class="form-group">
+	  				   <div class="row">
+	  				      <div class="col-sm-4">
+	    				     <label for="leavingDate">Departure Date (DD/MM/YY - ex. 01/01/17)</label>
+	    				     <input type="role" class="form-control" id="departureDate">
+	    				    </div>
+	    				 </div>
+	  				 </div>
+			
+	  		
+
+	 				<button type="submit" id="submit" class="btn btn-default">Submit</button>
+
+				</form>
+
+
+				
 			</div>
 
-			<form>
 
-  				<div class="form-group">
-    				<label for="originStart">Origin</label>
-    				<input type="name" class="form-control" id="originStart">
-  				</div>
-
-  				<div class="form-group">
-    				<label for="arrivalDestination">Destination</label>
-    				<input type="role" class="form-control" id="arrivalDestination">
-  				</div>
-
-  				<div class="form-group">
-    				<label for="leavingDate">Arrival Date (DD/MM/YY - ex. 01/01/17)</label>
-    				<input type="role" class="form-control" id="leavingDate">
-  				</div>
-					
-					<div class="form-group">
-    				<label for="leavingDate">Departure Date (DD/MM/YY - ex. 01/01/17)</label>
-    				<input type="role" class="form-control" id="leavingDate">
-  				</div>
-		
-  		
-
- 				<button type="submit" id="submit" class="btn btn-default">Submit</button>
-
-			</form>
+		</div>
 
 
+
+	
+			   
+	  		</table>
 			
+
 		</div>
 
+		<div class="row flightOptions">
+			<div>
+				<h4 class="styleBlue">Flight Options</h4>
+			</div>
+			<div class="panel-body">		
+			<table class="table table-hover" id='weather-table'>
+	    		<thead>
+				      <tr>
+				        <th>Location</th>
+				        <th>Temperature</th>
+				        
+				      </tr>
+	    		</thead>
+	    		<tbody>
+	    		</tbody>
+			   
+	  		</table>
+			</div>
 
-	</div>
-
-
-
-<div class="row flightOptions">
-		<div>
-			<h4 class="styleBlue">Flight Options</h4>
 		</div>
-
-		<table class="table table-striped">
-    		<thead>
-			      <tr>
-			        <th id="priceColumn">Price($)</th>
-			        <th id="airlineColumn">Airline</th>
-			        <th id="flightNumberColumn">Flight Number</th>
-			        <th id="departureColumnOneWay">Depature Time</th>
-			        <th id="arrivalTimeColumnOneWay">Arrival Time</th>
-			        <th id="departureDateReturn">Departure Date Return Flight</th>
-			        <th id="departureTimeColumnReturnFlight">Depature Time Return Flight</th>
-			     		<th id="arrivalTimeColumnReturnFlight">Arrival Time Return Flight</th>
-			      </tr>
-    		</thead>
-		   
-  		</table>
-		
-
-	</div>
-
-	<div class="row flightOptions">
-		<div>
-			<h4 class="styleBlue">Flight Options</h4>
-		</div>
-
-		<table class="table table-striped">
-    		<thead>
-			      <tr>
-			        <th id="locationColumn">Location</th>
-			        <th id="temperatureColumn">Temperature</th>
-			        
-			      </tr>
-    		</thead>
-		   
-  		</table>
-		
-
-	</div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/javascript/flight.js"></script>
 </body>
 </html>
