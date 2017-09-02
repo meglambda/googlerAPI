@@ -1,53 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Travel Weather</title>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <meta charset="UTF-8">
+      <title>Travel Weather</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script type="text/javascript" src="assets/javascript/flight.js"></script>
    		<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
-
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
    		<img src="Bootcamp-Homework/img/weather.jpg">
 </head>
 <body class="bg-info">
-
 	<div class="container ">
 		<div class="row jumbotron" style= " background-color: skyblue; color: white">
 			 <img src="./img/weather.jpg" class="img-rounded">
 			<div>
-				<h1 class= "display 1" text-center">Weather App</h1>
-				<p class="lead">Tell us where you want go and I will tell you a weather information</p>
-			</div>
-		</div>
-       <!--  <div>
-        	<button type="text" id="myweather" class="btn btn-primary">Weather-Forcast</button>
-         -->
-		
-	    <!-- <div class="btn-group">
-			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			     <span class="caret"></span>
-			  </button> -->
-			 <!--  <ul class="dropdown-menu">
-			    <li><a href="#">1-day cast</a></li>
-			    <li><a href="#">2-days cast</a></li>
-			    <li><a href="#">3-5 days cast</a></li>
-			     <li role="separator" class="divider"></li>
-			    <li><a href="#">Separated link</a></li>
-			  </ul> -->
-		</div> 
-       </div>
-	<div class="row addDestination">
-
-			<div class="labelsAndInputs">
-				<!-- <div>
-					<h4 class="styleBlue">Where do you want to travel? </h4>
-				</div> -->
+				<h1 class= "display 1 text-center">Weather App</h1>
+				<h3>Tell us where you want go and I will tell you the weather information</h3>
+      		</div>
+      	</div>
                  <br>
                  <br>
 				<form method="post">
-                   
 		  			 <div class="form-group">
 		  				  <div class="row">
 	                        <div class="col-sm-4 col-sm-offset-3">
@@ -56,39 +31,23 @@
 		  				    </div>
 		  				  </div>
 		  			</div>
-		  			<!-- <div class="form-group">
-		  				<div class="row">
-	                        <div class="col-sm-4 col-sm-offset-3">
-		    				  <label for="leavingDate">Arrival Date </label>
-		    				  <input type="role" class="form-control" id="date" placeholder = "MM/DD/YYYY" type="text">
-		    				    </div>
-		  				    </div>
-		  			     </div>
-		  			  </div>
-							
-						<div class="form-post">
-		  				   <div class="row">
-		  				      <div class="col-sm-4 col-sm-offset-3">
-		    				     <label for="leavingDate">Departure Date </label>
-		    				     <input type="role" class="form-control" id="date" placeholder = "MM/DD/YYYY" type="text">
-		    				    </div>
-		    				 </div>
-		  				 </div>
-				        <br> -->
-		  		
+					<button type="submit" id="submit" class="btn btn-primary text-center col-sm-offset-3">Submit</button>           
+                </form>
+		<div class="row">
+			<div class="panel-body">		
+			<table class="table table-hover" id='weather-table'>
+	    		<thead>
+				      <tr>
+				        <th>Location</th>
+				        <th>Temperature</th>
+				     </tr>
+	    		</thead>
+	    		<tbody>
+	    		</tbody>
+	  		</table>
+     	</div>
+	</div>
+</div>
 
-		 				<button type="submit" id="submit" class="btn btn-primary text-center col-sm-offset-3">Submit</button>
-
-				</form>
-
-
-				
-			</div>
-
-
-		</div>
-
-		</div>
-    <script type="text/javascript" src=../javascript/main.js></script>
 </body>
 </html>
