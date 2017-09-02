@@ -16,7 +16,8 @@
 		<div class="row jumbotron">
 			<div>
 				<h1>Weather App</h1>
-				<h3>Tell us where you want go and I will tell you a weather information</h3>
+
+				<h3>Tell us where you want go and I will tell you the weather information</h3
 			</div>
 		</div>
         <div>
@@ -57,7 +58,9 @@
 	  				<div class="row">
                         <div class="col-sm-4">
 	    				  <label for="leavingDate">Arrival Date (DD/MM/YY - ex. 01/01/17)</label>
-	    				  <input type="role" class="form-control" id="leavingDate">
+
+	    				  <input type="role" class="form-control" id="arrivalDate">
+
 	  				    </div>
 	  			     </div>
 	  			  </div>
@@ -66,7 +69,9 @@
 	  				   <div class="row">
 	  				      <div class="col-sm-4">
 	    				     <label for="leavingDate">Departure Date (DD/MM/YY - ex. 01/01/17)</label>
-	    				     <input type="role" class="form-control" id="leavingDate">
+
+	    				     <input type="role" class="form-control" id="departureDate">
+
 	    				    </div>
 	    				 </div>
 	  				 </div>
@@ -82,12 +87,8 @@
 			</div>
 
 
-		</div>
+        </div>
 
-
-
-	
-			<!--    
 	  		</table>
 			
 
@@ -97,20 +98,24 @@
 			<div>
 				<h4 class="styleBlue">Flight Options</h4>
 			</div>
-
-			<table class="table table-striped">
+			<div class="panel-body">		
+			<table class="table table-hover" id='weather-table'>
 	    		<thead>
 				      <tr>
-				        <th id="locationColumn">Location</th>
-				        <th id="temperatureColumn">Temperature</th>
+				        <th>Location</th>
+				        <th>Temperature</th>
 				        
 				      </tr>
 	    		</thead>
+	    		<tbody>
+	    		</tbody>
 			   
 	  		</table>
-			 -->
+			</div>
 
 		</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/javascript/flight.js"></script>
 
 </body>
 </html>
