@@ -31,7 +31,7 @@ $("#submit").on("click", function(){
 
 function findWeatherInCity (destinationCity, callback) {
 	var APIKey = "166a433c57516f51dfab1f7edaed8413";
-	var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + destinationCity + "&appid=" + APIKey;
+	var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + destinationCity + "&appid=" + APIKey;
 	console.log(queryURL);
 	$.ajax({
 		url: queryURL,
