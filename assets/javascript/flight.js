@@ -1,83 +1,85 @@
- // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAiXRYAkF37tDP8ZdsCXAV4Hp2ysnyxzKE",
-    authDomain: "trialairline.firebaseapp.com",
-    databaseURL: "https://trialairline.firebaseio.com",
-    projectId: "trialairline",
-    storageBucket: "trialairline.appspot.com",
-    messagingSenderId: "165337648944"
-  };
-  firebase.initializeApp(config);
+$(document).ready(function(){
+  
+var destinationCity = '';
 
-  	var database = firebase.database();
+$("#eventCarousel").hide();
+function clearEvents(){
+	$("#eventItems").empty();
+		$("#location").html('');
+		$("#weather-table > tbody").empty();
+}
 $("#submit").on("click", function(){
 	event.preventDefault();
+	clearEvents();
 	console.log("submit button works?");
-	var destinationCity = $("#arrivalDestination").val().trim();
-	console.log("destination city is" + destinationCity);
-	var arrivalDate = $("#arrivalDate").val().trim();
-	console.log("arrivalDate is: " + arrivalDate);
-	var departureDate = $("#departureDate").val().trim();
-	console.log("departureDate is: " + departureDate); 
-
-	var empObj = {
-		destination: destinationCity,
-		dateOfArrival: arrivalDate,
-		dateOfDeparture: departureDate
-
-
-
-	};
-	database.ref().push({
-		empObj
+	destinationCity = $("#location").val().trim();
+	console.log(destinationCity);
+	findWeatherInCity(destinationCity, function(temperature) {
+	$("#weather-table > tbody").append("<tr><td>" + destinationCity + 
+		"</td><td>" + temperature + " &#8457"+ "<img src="+iconUrl+"></td></tr>" );
 	});
-});
-
-database.ref().on("child_added", function(snapshot, prevChildKey){
-	var empObj = snapshot.val().empObj;
-
-	console.log(empObj);
-
-	var destinationLatest = empObj.destination;
-	var arrivalDateLatest = empObj.dateOfArrival;
-	var departureDateLatest = empObj.dateOfDeparture;
-
-	findWeatherInCity(destinationLatest, function(temperature){
-
-		console.log(destinationLatest, arrivalDateLatest, departureDateLatest);
-	$("#weather-table > tbody").append("<tr><td>" + destinationLatest + "</td><td>" + temperature + "</td></tr>" )
- 
+	events(destinationCity, function() {
+	console.log(destinationCity);
+	$("#eventItems").append("<div class='item active'><a href="+eventPageUrl+"><img src="+imgUrl+
+		"><div class='carousel-caption'><h3>"+eventName+"</h3><p>"+eventDate+"</p></div></a></div>");
 	});
-
-	
+	$("#cityEvents").html('Here are some events in '+ destinationCity);
 });
 
 function findWeatherInCity (destinationCity, callback) {
 	var APIKey = "166a433c57516f51dfab1f7edaed8413";
-	// var location = $(destinationLatest).attr("data-location");
-	var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + destinationCity + "&appid=" + APIKey;
-
-$.ajax({
-	url: queryURL,
-	method: "GET"
-})
-.done(function(response){
-
-	var results = response.data;
-	console.log(response.main.temp);
-	var temperatureLatest = kelvinToF( response.main.temp);
-	callback(temperatureLatest)
-
-
-function kelvinToF (k) {
-        return (k-273.15)*1.80 +32;
-
-      }
-
-});
-
+	var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + destinationCity + "&appid=" + APIKey;
+	console.log(queryURL);
+	$.ajax({
+		url: queryURL,
+		method: "GET"
+	})
+	.done(function(response){
+		console.log(response);
+		console.log(response.main.temp);
+		iconUrl = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+		 	console.log(iconUrl);
+		var temperatureLatest = kelvinToF( response.main.temp);
+		callback(temperatureLatest);
+		function kelvinToF (k) {
+	        return Math.round((k-273.15)*1.80 +32,0);
+	      }
+	});
 } 
 
+function events (destinationCity) {
+	var APIKey = "MOX2TZYUBRDINF24GULS";
+	console.log(destinationCity);
+
+	console.log(destinationCity);
+	var queryURL = "https://www.eventbriteapi.com/v3/events/search/?location.address="+destinationCity+"&token=MOX2TZYUBRDINF24GULS";
+	console.log(queryURL);
+	$.ajax({
+		url: queryURL,
+		method: "GET"
+	})
+	.done(function(response){
+		console.log(response.events.slice(0,6));
+	var eventsList = response.events.slice(0,6);
+		for (var i = 0; i < eventsList.length; i++) {
+		var eventName = eventsList[i].name.text;
+		var eventPageUrl = eventsList[i].url;
+		var eventDate = eventsList[i].start.local;
+		eventDate = moment(eventDate).format('MMMM, DD YYYY');	
+		var imgUrl = eventsList[i].logo.url;
+		$("#eventCarousel").show();
+				if(i <3){
+					$("#eventItems").append("<div><div class='item active col-xs-4'><a href="+eventPageUrl+"target='_blank'><img src="+imgUrl+
+				"><div class='carousel-caption'><h3>"+eventName+"</h3><p>"+eventDate+"</p></div></a></div><div>");
+						} else if(i > 2) {
+					$("eventItems").append("<div><div class='item'><a href="+eventPageUrl+"target='_blank'><img src="+imgUrl+
+				"><div class='carousel-caption'><h3>"+eventName+"</h3><p>"+eventDate+"</p></div></a></div><div>");
+				}
+		}
+
+	});
+}
+});
 //function that will call the weather api given the insert it into the query 
 //return the forcast and store in value
 //store that value in firebase 
