@@ -1,75 +1,32 @@
 // Initialize Firebase
 $(document).ready(function(){
-  // var config = {
-  //   apiKey: "AIzaSyAiXRYAkF37tDP8ZdsCXAV4Hp2ysnyxzKE",
-  //   authDomain: "trialairline.firebaseapp.com",
-  //   databaseURL: "https://trialairline.firebaseio.com",
-  //   projectId: "trialairline",
-  //   storageBucket: "trialairline.appspot.com",
-  //   messagingSenderId: "165337648944"
-  // };
-   var config = {
-    apiKey: "AIzaSyCD8EukaLgNVNPIkNXBvK7lUY7t9AyEU0w",
-    authDomain: "firstfirebase-58100.firebaseapp.com",
-    databaseURL: "https://firstfirebase-58100.firebaseio.com",
-    projectId: "firstfirebase-58100",
-    storageBucket: "firstfirebase-58100.appspot.com",
-    messagingSenderId: "706998340569"
-  };
-firebase.initializeApp(config);
+  
 // var	iconUrl=""; 
-var database = firebase.database();
 var destinationCity = '';
-var destinationLatest = '';
+
 $("#eventCarousel").hide();
-var locationObj = {
-		destination: destinationCity
-		// dateAdded: firebase.database.ServerValue.TIMESTAMP
-	};
-	database.ref().push({
-		dateAdded: firebase.database.ServerValue.TIMESTAMP,
-		locationObj
-	});
+
 function clearEvents(){
 	$("#eventItems").empty();
+		$("#location").html('');
+		$("#weather-table > tbody").empty();
 }
 $("#submit").on("click", function(){
 	event.preventDefault();
 	clearEvents();
 	console.log("submit button works?");
 	destinationCity = $("#location").val().trim();
-	// events(destinationCity);
 	console.log(destinationCity);
-	locationObj = {
-		destination: destinationCity
-		// dateAdded: firebase.database.ServerValue.TIMESTAMP
-	};
-	database.ref().push({
-		dateAdded: firebase.database.ServerValue.TIMESTAMP,
-		locationObj
-	});
-	$("#location").html('');
-});
-database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot){
- 	locationObj = snapshot.val();
-	console.log(locationObj);
-	if(destinationLatest == ''){
-		destinationLatest = 'Denver';
-				console.log(destinationLatest);
-		$("#cityEvents").html('Here are some events in '+ destinationLatest);
-	}
-	// var destinationLatest = locationObj.locationObj.destination;
-	findWeatherInCity(destinationLatest, function(temperature) {
-	console.log(destinationLatest +" "+ iconUrl);
-	$("#weather-table > tbody").append("<tr><td>" + destinationLatest + 
+	findWeatherInCity(destinationCity, function(temperature) {
+	$("#weather-table > tbody").append("<tr><td>" + destinationCity + 
 		"</td><td>" + temperature + " &#8457"+ "<img src="+iconUrl+"></td></tr>" );
 	});
-	events(destinationLatest, function() {
-	console.log(destinationLatest);
+	events(destinationCity, function() {
+	console.log(destinationCity);
 	$("#eventItems").append("<div class='item active'><a href="+eventPageUrl+"><img src="+imgUrl+
 		"><div class='carousel-caption'><h3>"+eventName+"</h3><p>"+eventDate+"</p></div></a></div>");
 	});
-	$("#cityEvents").html('Here are some events in '+ destinationLatest);
+	$("#cityEvents").html('Here are some events in '+ destinationCity);
 });
 
 function findWeatherInCity (destinationCity, callback) {
@@ -95,16 +52,16 @@ function findWeatherInCity (destinationCity, callback) {
 // eventbrite api call function//https://www.eventbriteapi.com/v3/events/search/q=denver?token=MOX2TZYUBRDINF24GULS
 //https://www.eventbriteapi.com/v3/events/search/?location.address=denver&token=MOX2TZYUBRDINF24GULS
 //&expand=event.venue
-function events (destinationLatest) {
+function events (destinationCity) {
 	var APIKey = "MOX2TZYUBRDINF24GULS";
-	console.log(destinationLatest);
-	if(destinationLatest == ''){
-		destinationLatest = 'Denver';
-				console.log(destinationLatest);
-		$("#cityEvents").html('Here are some events in '+ destinationLatest);
-	}
-	console.log(destinationLatest);
-	var queryURL = "https://www.eventbriteapi.com/v3/events/search/?location.address="+destinationLatest+"&token=MOX2TZYUBRDINF24GULS";
+	console.log(destinationCity);
+	// if(destinationCity == ''){
+	// 	destinationCity = 'Denver';
+	// 			console.log(destinationCity);
+	// 	$("#cityEvents").html('Here are some events in '+ destinationCity);
+	// }
+	console.log(destinationCity);
+	var queryURL = "https://www.eventbriteapi.com/v3/events/search/?location.address="+destinationCity+"&token=MOX2TZYUBRDINF24GULS";
 	console.log(queryURL);
 	$.ajax({
 		url: queryURL,
