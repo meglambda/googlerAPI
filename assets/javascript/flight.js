@@ -1,8 +1,10 @@
+
 $(document).ready(function(){
   
 var destinationCity = '';
 
 $("#eventCarousel").hide();
+
 function clearEvents(){
 	$("#eventItems").empty();
 		$("#location").html('');
@@ -28,7 +30,9 @@ $("#submit").on("click", function(){
 
 function findWeatherInCity (destinationCity, callback) {
 	var APIKey = "166a433c57516f51dfab1f7edaed8413";
+
 	var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + destinationCity + "&appid=" + APIKey;
+
 	console.log(queryURL);
 	$.ajax({
 		url: queryURL,
@@ -67,6 +71,7 @@ function events (destinationCity) {
 		var eventDate = eventsList[i].start.local;
 		eventDate = moment(eventDate).format('MMMM, DD YYYY');	
 		var imgUrl = eventsList[i].logo.url;
+      
 		$("#eventCarousel").show();
 				if(i <3){
 					$("#eventItems").append("<div><div class='item active col-xs-4'><a href="+eventPageUrl+"target='_blank'><img src="+imgUrl+
