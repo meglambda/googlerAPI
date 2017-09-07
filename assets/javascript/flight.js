@@ -55,7 +55,7 @@ database.ref().on("child_added", function(snapshot, prevChildKey){
 function findWeatherInCity (destinationCity, callback) {
 	var APIKey = "166a433c57516f51dfab1f7edaed8413";
 	// var location = $(destinationLatest).attr("data-location");
-	var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + destinationCity + "&appid=" + APIKey;
+	var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + destinationCity + "&appid=" + APIKey;
 
 $.ajax({
 	url: queryURL,
