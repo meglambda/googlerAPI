@@ -41,7 +41,7 @@ function findWeatherInCity (destinationCity, callback) {
 	.done(function(response){
 		console.log(response);
 		console.log(response.main.temp);
-		iconUrl = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+		iconUrl = "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
 		 	console.log(iconUrl);
 		var temperatureLatest = kelvinToF( response.main.temp);
 		callback(temperatureLatest);
