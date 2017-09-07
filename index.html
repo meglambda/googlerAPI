@@ -2,52 +2,69 @@
 <html lang="en">
 <head>
       <meta charset="UTF-8">
-      <title>Travel Weather</title>
+      <title>My City</title>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script type="text/javascript" src="assets/javascript/flight.js"></script>
    		<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-   		<img src="Bootcamp-Homework/img/weather.jpg">
+    	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   		<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">   
 </head>
 <body class="bg-info">
-	<div class="container ">
-		<div class="row jumbotron" style= " background-color: skyblue; color: white">
-			 <img src="./img/weather.jpg" class="img-rounded">
-			<div>
-				<h1 class= "display 1 text-center">Weather App</h1>
-				<h3>Tell us where you want go and I will tell you the weather information</h3>
-      		</div>
-      	</div>
-                 <br>
-                 <br>
-				<form method="post">
-		  			 <div class="form-group">
-		  				  <div class="row">
-	                        <div class="col-sm-4 col-sm-offset-3">
-		    				   <label for="arrivalDestination">Destination</label>
-		    				   <input type="role" class="form-control" id="arrivalDestination">
-		  				    </div>
-		  				  </div>
-		  			</div>
-					<button type="submit" id="submit" class="btn btn-primary text-center col-sm-offset-3">Submit</button>           
-                </form>
-		<div class="row">
-			<div class="panel-body">		
-			<table class="table table-hover" id='weather-table'>
-	    		<thead>
-				      <tr>
-				        <th>Location</th>
-				        <th>Temperature</th>
-				     </tr>
-	    		</thead>
-	    		<tbody>
-	    		</tbody>
-	  		</table>
-     	</div>
+	<div class="container">
+		<br>
+	<div class="row jumbotron" style= " background-color: skyblue; color: white">
+			<h2 class= "text-center text-info">My City Guide</h2>
+			<h3 class= "text-center text-muted">Providing just what you need to know about your city</h3>
+    </div>
+		<form method="post">
+			<div class="form-group">	                 
+	  			<div class="row">
+	  			    <div class="col-sm-4"">
+	    			   <input type="role" class="form-control" id="location" placeholder="Enter City, Town or Village">
+	  			    </div>
+					<div class="col-sm-3"">
+						<button type="submit" id="submit" class="btn btn-primary text-center" style="position: absolute; left: 0; top: 0;" >Submit</button>   
+					</div>
+				</div>
+			</div>        
+         </form>
+    <div class="row">
+    	<h3 class="text-muted bg-info text-center" id="cityEvents"></h3>
+    		<div id="eventCarousel" class="carousel slide multi-item-carousel" data-ride="carousel" >
+    		<!-- indicators -->
+				 
+				  <!-- wrapper for slides -->
+    			<div class="carousel-inner" id="eventItems">
+    				
+    				
+    			</div>
+    			  <!-- Left and right controls -->
+    			<div id="controls">
+					<a class="left carousel-control" href="#eventCarousel" data-slide="prev">
+	    				<span class="glyphicon glyphicon-chevron-left"></span>
+	    				<span class="sr-only">Previous</span>
+	  				</a>
+	  				<a class="right carousel-control" href="#eventCarousel" data-slide="next">
+	    				<span class="glyphicon glyphicon-chevron-right"></span>
+	    				<span class="sr-only">Next</span>
+	  				</a>
+  				</div>
+	    	</div>
+    </div>     
+	<div class="row">
+		<div class="panel-body">		
+		<table class="table table-hover" id='weather-table'>
+	 		<thead>
+			    <tr>
+			   		<th>Location</th>
+			    	<th>Temperature</th>
+			    </tr>
+	 		</thead>
+	 		<tbody></tbody>
+	 	</table>
+    	</div>
 	</div>
 </div>
-
 </body>
 </html>
