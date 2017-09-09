@@ -11,12 +11,19 @@ function clearEvents(){
 		$("#weather-table > tbody").empty();
 }
 $("#submit").on("click", function(){
-	event.preventDefault();
-	clearEvents();
-	console.log("submit button works?");
-	destinationCity = $("#location").val().trim();
-	console.log(destinationCity);
+				event.preventDefault();
+				clearEvents();
+				console.log("submit button works?");
+				destinationCity = $("#location").val().trim();
+				console.log(destinationCity);
+
+	findForecast(destinationCity, function(date, temperaturemin, temperatureMax, weather, humidity){
+		// $("forecast-table").removeChild()
+		$("#forecast-table").append("<tr><td>" + date + "</td><td>" + temperaturemin  + "</td><td>" + temperatureMax + "</td><td>" + weather +  "</td><td>" + humidity + "</td></tr>")
+	});
+
 	findWeatherInCity(destinationCity, function(temperature) {
+	
 	$("#weather-table > tbody").append("<tr><td>" + destinationCity + 
 		"</td><td>" + temperature + " &#8457"+ "<img src="+iconUrl+"></td></tr>" );
 	});
@@ -50,6 +57,59 @@ function findWeatherInCity (destinationCity, callback) {
 	      }
 	});
 } 
+
+
+function findForecast (destinationCity, callback) {
+	var APIKey = "166a433c57516f51dfab1f7edaed8413";
+	// var location = $(destinationLatest).attr("data-location");
+	var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + destinationCity + "&appid=" + APIKey;
+
+$.ajax({
+	url: queryURL,
+	method: "GET"
+})
+.done(function(response){
+	var results = response.data;
+	
+
+	// for(var = 0; i < 100; i++) {
+	// console.log("tempMax day 2" + response.list[0].main.temp.max);
+
+	console.log("did this work?:" + response.list[0].main.temp_max);
+	console.log("did this work?:" + response.list[0].main.temp_min);
+	console.log("date is:" + response.list[0].dt_txt);
+	console.log("weather is: " + response.list[0].weather[0].description);
+// var currentTime = moment().format("YYYY:MM:DD");
+// console.log("the current date is:" + currentTime);
+	// let today = moment(new Date()).format("YYYY:MM:DD")
+	// console.log("today's dates" + today);
+	// let tomorrow = moment(new Date()).add(1, 'days').format("YYYY:MM:DD");
+	// console.log("tomorrow's date" + tomorrow);
+
+console.log(response);
+
+for (var i=0; i<132 ; i+=8){
+
+		
+				var temperatureLatestMin = Math.round(kelvinToF (response.list[i].main.temp_min));
+				var temperatureLatestMax = Math.round(kelvinToF(response.list[i].main.temp_min));
+				var weather = response.list[i].weather[0].description; 
+				var humidity = response.list[i].main.humidity;
+				var date = response.list[i].dt_txt;
+				date = moment(date).format("LL");
+				callback(date, temperatureLatestMin, temperatureLatestMax, weather, humidity);
+				
+					function kelvinToF (k) {
+	        return Math.round((k-273.15)*1.80 +32,0);
+	      }
+				
+		}
+
+})
+}
+// eventbrite api call function//https://www.eventbriteapi.com/v3/events/search/q=denver?token=MOX2TZYUBRDINF24GULS
+//https://www.eventbriteapi.com/v3/events/search/?location.address=denver&token=MOX2TZYUBRDINF24GULS
+//&expand=event.venue
 
 function events (destinationCity) {
 	var APIKey = "MOX2TZYUBRDINF24GULS";
