@@ -1,7 +1,6 @@
-// Initialize Firebase
+
 $(document).ready(function(){
   
-// var	iconUrl=""; 
 var destinationCity = '';
 
 $("#eventCarousel").hide();
@@ -38,7 +37,9 @@ $("#submit").on("click", function(){
 
 function findWeatherInCity (destinationCity, callback) {
 	var APIKey = "166a433c57516f51dfab1f7edaed8413";
+
 	var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + destinationCity + "&appid=" + APIKey;
+
 	console.log(queryURL);
 	$.ajax({
 		url: queryURL,
@@ -56,6 +57,14 @@ function findWeatherInCity (destinationCity, callback) {
 	      }
 	});
 } 
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+=======
+
+
+>>>>>>> 43a743b5dafc2512b8c9a1bf5cfac33da2860015
 function findForecast (destinationCity, callback) {
 	var APIKey = "166a433c57516f51dfab1f7edaed8413";
 	// var location = $(destinationLatest).attr("data-location");
@@ -107,14 +116,15 @@ for (var i=0; i<132 ; i+=8){
 // eventbrite api call function//https://www.eventbriteapi.com/v3/events/search/q=denver?token=MOX2TZYUBRDINF24GULS
 //https://www.eventbriteapi.com/v3/events/search/?location.address=denver&token=MOX2TZYUBRDINF24GULS
 //&expand=event.venue
+<<<<<<< HEAD
+>>>>>>> 2cb78dbf2732efd06b6487e6205942226687e86c
+=======
+
+>>>>>>> 43a743b5dafc2512b8c9a1bf5cfac33da2860015
 function events (destinationCity) {
 	var APIKey = "MOX2TZYUBRDINF24GULS";
 	console.log(destinationCity);
-	// if(destinationCity == ''){
-	// 	destinationCity = 'Denver';
-	// 			console.log(destinationCity);
-	// 	$("#cityEvents").html('Here are some events in '+ destinationCity);
-	// }
+
 	console.log(destinationCity);
 	var queryURL = "https://www.eventbriteapi.com/v3/events/search/?location.address="+destinationCity+"&token=MOX2TZYUBRDINF24GULS";
 	console.log(queryURL);
@@ -131,7 +141,7 @@ function events (destinationCity) {
 		var eventDate = eventsList[i].start.local;
 		eventDate = moment(eventDate).format('MMMM, DD YYYY');	
 		var imgUrl = eventsList[i].logo.url;
-		// console.log('Logo Url is '+imgUrl);
+      
 		$("#eventCarousel").show();
 				if(i <3){
 					$("#eventItems").append("<div><div class='item active col-xs-4'><a href="+eventPageUrl+"target='_blank'><img src="+imgUrl+
