@@ -1,94 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Travel Weather</title>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	 <head>
+		<meta charset="UTF-8">
+		<title>Travel Weather</title>
+		    <link rel="stylesheet" type="text/css" href="css/style.css">
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<script type="js/jquery validate.js"></script>
+	    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-   		<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+	   		<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
 
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-   		<img src="Bootcamp-Homework/img/weather.jpg">
-</head>
-<body class="bg-info">
+	    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	   		<!-- <img src="Bootcamp-Homework/img/weather.jpg"> -->
+	</head>
+	<body class="bg-info">
 
-	<div class="container ">
-		<div class="row jumbotron" style= " background-color: skyblue; color: white">
-			 <img src="./img/weather.jpg" class="img-rounded">
-			<div>
-				<h1 class= "display 1" text-center">Weather App</h1>
-				<p class="lead">Tell us where you want go and I will tell you a weather information</p>
-			</div>
-		</div>
-       <!--  <div>
-        	<button type="text" id="myweather" class="btn btn-primary">Weather-Forcast</button>
-         -->
-		
-	    <!-- <div class="btn-group">
-			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			     <span class="caret"></span>
-			  </button> -->
-			 <!--  <ul class="dropdown-menu">
-			    <li><a href="#">1-day cast</a></li>
-			    <li><a href="#">2-days cast</a></li>
-			    <li><a href="#">3-5 days cast</a></li>
-			     <li role="separator" class="divider"></li>
-			    <li><a href="#">Separated link</a></li>
-			  </ul> -->
-		</div> 
-       </div>
-	<div class="row addDestination">
+		<div class=".container-fluid" >
+			<div class=".jumbotron-fluid " style= " background-color: #3e4444; color: white">
+			  <div id = 'slider'>
+			  	<h1 class= "display1 text-center">Weather App</h1>
+					<p class="lead text-center">Tell us where you want go and I will tell you a weather information</p>
+			  	<ul class="slides">
+			  		<li class = "slide"><img src="img/denver.jpg"/></li>
+			  		<li class = "slide"><img src="img/Weather-Api.jpg"/></li>
+			  		<li class = "slide"><img src="img/miami1.jpg"/></li>
+			  		<!-- <li class = "slide"><img src="img/Chicago1.jpg"/></li> -->
+			  		<li class = "slide"><img src="img/NY.jpg"/></li>
+			  		<li class = "slide"><img src="img/minneapolis.jpg"/></li>
+			  		<li class = "slide"><img src="img/Los-Angeles.jpg"/></li>
+			  		<li class = "slide"><img src="img/Nashville.jpg"/></li>
+			  		<li class = "slide"><img src="img/seattle.jpg"/></li>
 
-			<div class="labelsAndInputs">
-				<!-- <div>
-					<h4 class="styleBlue">Where do you want to travel? </h4>
-				</div> -->
-                 <br>
-                 <br>
-				<form method="post">
-                   
-		  			 <div class="form-group">
-		  				  <div class="row">
-	                        <div class="col-sm-4 col-sm-offset-3">
-		    				   <label for="arrivalDestination">Destination</label>
-		    				   <input type="role" class="form-control" id="arrivalDestination">
-		  				    </div>
-		  				  </div>
-		  			</div>
-		  			<!-- <div class="form-group">
-		  				<div class="row">
-	                        <div class="col-sm-4 col-sm-offset-3">
-		    				  <label for="leavingDate">Arrival Date </label>
-		    				  <input type="role" class="form-control" id="date" placeholder = "MM/DD/YYYY" type="text">
-		    				    </div>
-		  				    </div>
-		  			     </div>
-		  			  </div>
-							
-						<div class="form-post">
-		  				   <div class="row">
-		  				      <div class="col-sm-4 col-sm-offset-3">
-		    				     <label for="leavingDate">Departure Date </label>
-		    				     <input type="role" class="form-control" id="date" placeholder = "MM/DD/YYYY" type="text">
-		    				    </div>
-		    				 </div>
-		  				 </div>
-				        <br> -->
-		  		
+			  	</ul>
+			  </div>
+				<!-- <! <img class="m-r-5 img-fluid " src="img/NY.jpg" alt="Responsive image"> -->
+					<!-- <h1 class= "display1 text-center">Weather App</h1>
+					<p class="lead text-center">Tell us where you want go and I will tell you a weather information</p> -->
+			<!-- </div> --> 
 
-		 				<button type="submit" id="submit" class="btn btn-primary text-center col-sm-offset-3">Submit</button>
+		<!-- </div> -->
 
-				</form>
+		    <div class="row addDestination"> 
 
-
+				<div class="labelsAndInputs">
 				
+	                <div class ="col-md-4 .offset-sm-1 m-b-5">
+	               		<div class="input-group">
+	               			<input type="text required" class=" form-control" value="Denver">
+	               			<span class="input-group-btn">
+	               				<button class="btn btn-primary" type="button" id = "submit">Submit</button>
+	               			</span>
+	               		</div>
+	               	</div>
+	            
+
+	         <div class="row addDestination"> 
+			  <div class="col-md-4  m-t-5">
+			   <div class= "panel panel-primary" id= "informationBoard">
+			     <div class="panel-heading">Your Up-to-date Weather Information</div>
+			     <!--  <div class="thumbnail m-t-0"> -->
+			         <!-- <img src="..." alt="..."> -->
+			      <!-- <div class="caption"> -->
+			        <h3 id="temprature">Temprature in &#8451; </h3>
+			        <h3 id="humidity">Humidity: </h3>
+			        <h3 id="wind">Wind Speed: in mph: </h3>
+			       <!--  <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+			      </div>
+			    </div>
+			  </div>
 			</div>
-
-
-		</div>
-
-		</div>
-    <script type="text/javascript" src=../javascript/main.js></script>
-</body>
+	     </div>
+	  </div>      
+   </div> 
+	        
+	 <footer>
+  
+               Copyright &copy; 2017 Girma Ayele
+  
+    </footer>
+     <script type="text/javascript" src="javascript/main.js"></script>
+  </body>
 </html>
