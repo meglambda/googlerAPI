@@ -1,2 +1,2 @@
 # googlerAPI
-flight search
+https://meglambda.github.io/googlerAPI/index.html
