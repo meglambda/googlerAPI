@@ -58,8 +58,13 @@ function findWeatherInCity (destinationCity, callback) {
 	});
 } 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+
+
+>>>>>>> 43a743b5dafc2512b8c9a1bf5cfac33da2860015
 function findForecast (destinationCity, callback) {
 	var APIKey = "166a433c57516f51dfab1f7edaed8413";
 	// var location = $(destinationLatest).attr("data-location");
@@ -111,7 +116,11 @@ for (var i=0; i<132 ; i+=8){
 // eventbrite api call function//https://www.eventbriteapi.com/v3/events/search/q=denver?token=MOX2TZYUBRDINF24GULS
 //https://www.eventbriteapi.com/v3/events/search/?location.address=denver&token=MOX2TZYUBRDINF24GULS
 //&expand=event.venue
+<<<<<<< HEAD
 >>>>>>> 2cb78dbf2732efd06b6487e6205942226687e86c
+=======
+
+>>>>>>> 43a743b5dafc2512b8c9a1bf5cfac33da2860015
 function events (destinationCity) {
 	var APIKey = "MOX2TZYUBRDINF24GULS";
 	console.log(destinationCity);
