@@ -1,50 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <meta charset="UTF-8">
-      <title>My City</title>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-
-      <script type="text/javascript" src="assets/javascript/flight.js"></script>
-   		<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
-    	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-   		<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">   
-		<!-- Slick -->
-		
-		
-
+    <meta charset="UTF-8">
+    <title>My City</title>
+     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGW-0XTLO7AZJ4IKuKbIDGU1nRQEZm1c0&libraries=places&callback=placesSearch"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/flight.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">   
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+	<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
 
 </head>
 <body class="">
-	<div class="container">
+	<div class="container-fluid">
 		<br>
-		<div class="row jumbotron" style= " background-color: black; color: white">
-			<h2 class= "text-center text-info">My City Guide</h2>
-			<h3 class= "text-center text-muted"></h3>
-    	</div>	
+		<div class="jumbotron-fluid " style= " background-color: #3e4444; color: white">
+			<div id = 'slider'>
+			  	<h1 class= "display1 text-center">Weather App</h1>
+				<h3 class= "text-center text-muted"></h3>
+				<ul class="slides">
+			  		<li class = "slide"><img src="img/denver.jpg"/></li>
+			  		<li class = "slide"><img src="img/Weather-Api.jpg"/></li>
+			  		<li class = "slide"><img src="img/miami1.jpg"/></li>
+			  		 <li class = "slide"><img src="img/Chicago1.jpg"/></li>
+			  		<li class = "slide"><img src="img/NY.jpg"/></li>
+			  		<li class = "slide"><img src="img/minneapolis.jpg"/></li>
+			  		<li class = "slide"><img src="img/Los-Angeles.jpg"/></li>
+			  		<li class = "slide"><img src="img/Nashville.jpg"/></li>
+			  		<li class = "slide"><img src="img/seattle.jpg"/></li> 
 
+			 	</ul>
+    		</div>	
+		</div>
+		<!-- search box and location weather -->
 	  		<div class="row">
-	 	 	    <div class="col-sm-4 input-group">
-	    			   <input type="role" class="form-control" id="location" placeholder="Enter City, Town or Village">
-	    				<span class="input-group-btn">  
-	    				   <button type="button" id="submit" class="btn btn-info">
-	    				   		<i class="glyphicon glyphicon-search"></i>
-	    				   </button>
-	    				</span> 
-	    		</div>
-	  			 <div class="col-sm-4 well well-sm offset-sm-4">		
-						<table class="table table-hover" id='weather-table'>
-	 					</table>
-				</div>	    			
+	  		<form>
+	            <div class ="col-sm-3 offset-sm-4">
+	            	<div class="input-group">
+	            		<input class="form-control" id="location" type="text" placeholder="Enter City, town or village">
+	            		<span class="input-group-btn">
+	            			<button class="btn btn-secondary" id="submit" type="button">Go!</button>
+	            		</span>
+	            	</div>
+	            </div>
+	  			 <div class="col-sm-4">		
+						<table class="table" id='weather-table'></table>
+	 			</div>			
 			</div>
+			</form>		   
+	<!-- events carousel section 		 			 -->
 	<div class="row">		       				    
          <h3 class="text-muted text-left" id="cityEvents"></h3>
     </div>     
     <div class="row">    		
     	<div id="eventItems"> </div>  
     </div>  
-
 	<div class="row">
 		<div class="panel-body">		
 		<table class="table table-hover" id='weather-table'>
@@ -76,6 +88,30 @@
 	  		</table>
      	</div>
 	</div>
+	<div id="alertModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Errors Found!</h4>
+            </div>
+            <div class="modal-body">
+                <p></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">
+                    Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 </div>
+	 <footer class="navbar navbar-inverse fixed">
+
+  		<div class="text-center text-info">
+              <span class="text-info navbar-center"> Copyright &copy; 2017 The BootCamp Team
+ 		</div> 
+    </footer>
+
 </body>
 </html>
