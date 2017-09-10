@@ -11,11 +11,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">   
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
 	<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
-
 </head>
-<body class="">
+<body class="bg-info">
 	<div class="container-fluid">
-		<br>
 		<div class="jumbotron-fluid " style= " background-color: #3e4444; color: white">
 			<div id = 'slider'>
 			  	<h1 class= "display1 text-center">Weather App</h1>
@@ -30,7 +28,6 @@
 			  		<li class = "slide"><img src="img/Los-Angeles.jpg"/></li>
 			  		<li class = "slide"><img src="img/Nashville.jpg"/></li>
 			  		<li class = "slide"><img src="img/seattle.jpg"/></li> 
-
 			 	</ul>
     		</div>	
 		</div>
@@ -52,14 +49,26 @@
 			</form>		   
 	<!-- events carousel section 		 			 -->
 	<div class="row">		       				    
-         <h3 class="text-muted text-left" id="cityEvents"></h3>
-    </div>     
-    <div class="row">    		
+       <h3 class="text-muted text-left" id="cityEvents"></h3>
+  </div>     
+  <div class="row">    		
     	<div id="eventItems"> </div>  
-    </div>  
+  </div>  
+	<!-- Weather data for current day		 			 -->
 	<div class="row">
 		<div class="panel-body">		
 		<table class="table table-hover" id='weather-table'>
+       <div class= "panel panel-primary" id= "informationBoard">
+         <!--looking into setting the weather data into panel below.
+			  <div class="col-md-4  m-t-5">
+			     <div class="panel-heading">Your Up-to-date Weather Information</div>
+			        <h3 id="temprature">Temprature in &#8451; </h3>
+			        <h3 id="humidity">Humidity: </h3>
+			        <h3 id="wind">Wind Speed: in mph: </h3>
+			      </div>
+      </div>
+        -->
+			    </div>
 	 		<thead>
 			    <tr>
 			   		<th>Location</th>
@@ -70,7 +79,7 @@
 	 	</table>
     	</div>
 	</div>
-
+<!--5 day weather data-->
 	<div class="row">
 			<div class="panel-body">		
 			<table class="table table-hover" id='forecast-table'>
@@ -83,11 +92,11 @@
 				        <th>Percent Humidity</th>
 				     </tr>
 	    		</thead>
-	    		<tbody>
-	    		</tbody>
+	    		<tbody></tbody>
 	  		</table>
      	</div>
 	</div>
+<!--modal alert for incorrect user input-->
 	<div id="alertModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -105,13 +114,12 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
 </div>
 	 <footer class="navbar navbar-inverse fixed">
-
-  		<div class="text-center text-info">
-              <span class="text-info navbar-center"> Copyright &copy; 2017 The BootCamp Team
- 		</div> 
-    </footer>
-
+     <div class="text-center text-info">
+       <span class="text-info navbar-center"> Copyright &copy; 2017 The BootCamp Team</span>
+ 		 </div> 
+   </footer>
 </body>
 </html>
