@@ -1,12 +1,12 @@
 #slider{
-	width: auto;
-	height: 420px;
+	width: 2000px;
+	height: 400px;
 	overflow: hidden;
 }
 
 #slider .slides{
 	display: block;
-	width: 6000px;
+	width: 12000px;
 	height: 400px;
 	margin: 0;
 	padding: 0;
@@ -15,7 +15,8 @@
 #slider .slide{
 	float: left;
 	list-style-type: none;
-	width: 720px;
+	display: inline-block;
+	width: 2000px;
 	height: 400px;
 }
 
@@ -33,4 +34,11 @@ body{
 }
 .input-group{
 	margin-top: 20px
+}
+h6 {
+	text-overflow: ellipsis;
+}
+
+.footer {
+	padding: 11px
 }
