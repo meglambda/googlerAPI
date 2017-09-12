@@ -1,0 +1,44 @@
+#slider{
+	width: auto;
+	height: 400px;
+	overflow: hidden;
+}
+
+#slider .slides{
+	display: block;
+	width: 12000px;
+	height: 400px;
+	margin: 0;
+	padding: 0;
+}
+
+#slider .slide{
+	float: left;
+	list-style-type: none;
+	display: inline-block;
+	width: 2000px;
+	height: 400px;
+}
+
+body{
+	background-color: #3e4444;
+}
+
+.panel-heading{
+	text-align: center;
+	padding-top: 20px;
+}
+.panel-primary{
+	margin-top: 20px;
+
+}
+.input-group{
+	margin-top: 20px
+}
+h6 {
+	text-overflow: ellipsis;
+}
+
+.footer {
+	padding: 11px
+}
