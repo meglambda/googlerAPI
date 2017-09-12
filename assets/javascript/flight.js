@@ -251,7 +251,7 @@ if(sessionStorage.getItem('userInputReceived') !== '1') {
 
 //calling the ip-api to get a general idea of user location which is then used to call the events & weather APIs to prepopulate the page on load
  function geolocate(destinationCity) {
- queryURL = 'http://ip-api.com/json';
+ queryURL = 'https://ip-api.com/json';
  $.ajax({
 		url: queryURL,
 		method: "GET"
