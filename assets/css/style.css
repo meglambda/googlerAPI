@@ -19,7 +19,19 @@
 	width: 2000px;
 	height: 400px;
 }
+#weather-table {
+	position: relative;
+	top: 17px;
+}
 
+#5dayWeather tr {
+padding-left: 4px;
+} 
+
+.bg-info {
+ margin-bottom: -50px;
+	
+}
 body{
 	background-color: #3e4444;
 }
@@ -38,7 +50,20 @@ body{
 h6 {
 	text-overflow: ellipsis;
 }
-
+.push {
+  height: 50px;
+}
 .footer {
-	padding: 11px
+	padding: 11px;
+	position: relative;
+	bottom: -100px;
+}
+.eventDiv {
+	width: 400px;
+	height: auto;
+}
+
+.imgTop {
+	width: 2000px;
+	height: auto;
 }
