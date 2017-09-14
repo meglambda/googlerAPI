@@ -1,5 +1,5 @@
 #slider{
-	width: 2000px;
+	width: auto;
 	height: 400px;
 	overflow: hidden;
 }
@@ -19,28 +19,34 @@
 	width: 2000px;
 	height: 400px;
 }
+#weather-table {
+	position: relative;
+	top: 17px;
+}
+
+#5dayWeather tr {
+padding-left: 4px;
+} 
+
 
 h1, .text-muted{
 	text-align: center;
 	font-family: Helvetica, Helvetica Neue, Arial
 	font-size: 3em;
 	line-height: 23px
-}
+
 body{
 	background-color: #3e4444;
 	font-family: Helvetica, Helvetica Neue, Arial
 	font-size: 20px;
 	line-height: 26px;
 }
-
-
 .panel-heading{
 	text-align: center;
 	padding-top: 20px;
 }
 .panel-primary{
 	margin-top: 20px;
-
 }
 .input-group{
 	margin-top: 10px
@@ -48,19 +54,19 @@ body{
 h6 {
 	text-overflow: ellipsis;
 }
-
+.push {
+  height: 50px;
+}
 .footer {
-	padding: 7px;
+  padding: 7px;
 	clear:bottom;
 	height:60px;
     background-color:#3e4444 ;
     border-top:10px solid  #3b3a30;
-
 }
 .navbar-fluid{
 	bottom-margin":-50px;
 }
-
 .jumbotron-fluid{
 	background-color: #3e4444; 
 	color: white;
@@ -69,12 +75,9 @@ h6 {
 #weather-table{
 	padding-top: 30px;
 }
-
-
 /*========================================
   Media Queries
 ==========================================*/
-
 @media only screen and (min-width: 480px) {
   .slides{
 	float:left;
@@ -132,4 +135,17 @@ h6 {
 }
 .clearfix {
 *zoom : 1;
+/* =======
+	padding: 11px;
+	position: relative;
+	bottom: -100px;
 }
+.eventDiv {
+	width: 400px;
+	height: auto;
+}
+
+.imgTop {
+	width: 2000px;
+	height: auto;
+}*/
