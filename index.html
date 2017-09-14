@@ -1,133 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Your City Guide</title>
-        <script type="text/javascript" src="assets/css/reset.css"></script>
-<!-- google places API -->
-     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGW-0XTLO7AZJ4IKuKbIDGU1nRQEZm1c0&libraries=places&callback=placesSearch"></script>
-  <!-- jQuery -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     <!-- flight.js -->
-    <script type="text/javascript" src="assets/javascript/flight.js"></script>	
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">   
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-	<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Your City Guide</title>
+	        <script type="text/javascript" src="assets/css/reset.css"></script>
+	     <!-- google places API -->
+	     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGW-0XTLO7AZJ4IKuKbIDGU1nRQEZm1c0&libraries=places&callback=placesSearch"></script>
+	     <!-- jQuery -->
+	     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	     <!-- flight.js -->
+	    <script type="text/javascript" src="assets/javascript/flight.js"></script>	
+	    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+		<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 
-   
-</head>
-<body class="bg-info">
-	<div class="container-fluid">
-		<div class="jumbotron-fluid row header" style= " background-color: #3e4444; color: white">
-			<h1 class= "text-left text-muted">Your City Guide <small class= "text-info text-muted"> | The spot to be</small></h1>
-			
-		</div>
-		<div class='row' id='slider'>
-		<ul class="slides">
-		  	<li class = "slide"><img src="img/Turkey.jpg"/></li>
-		  	<li class = "slide"><img src="img/HongKong.jpg"/></li>
-		  	<li class = "slide"><img src="img/LasAngelas.jpg"/></li>
-		  	<li class = "slide"><img src="img/MurfreesboroTN.jpg"/></li>
-		  	<li class = "slide"><img src="img/ChicagoIL.jpg"/></li>
-			<li class = "slide"><img src="img/NewOrleansLA.jpg"/></li>
-		 </ul>
-    	</div>	
-		<!-- search box and location weather -->
-	  		<div class="row">
-	  		<form>
-	            <div class ="col-sm-3 offset-sm-4">
-	            	<div class="input-group">
-	            		<input class="form-control" id="location" type="text" placeholder="Enter City, town or village">
-	            		<span class="input-group-btn">
-	            			<button class="btn btn-secondary" id="submit" type="button">Go!</button>
-	            		</span>
-	            	</div>
-	            </div>
-	  			 <div class="col-sm-4">	
-	  			 	<div class="text-info">	
-						<table class="table text-center" id='weather-table'></table>
-					</div>	
-	 			</div>			
-			</form>	
+	   
+	</head>
+	<body class="bg-info">
+		<div class="container-fluid">
+			<div class="jumbotron-fluid row header" style= " ">
+				<h1 class= " text-muted">Your City Guide <small class= "text-info text-muted"> | The spot to be</small></h1>
+				
 			</div>
-				   
-	<!-- events carousel section 		 			 -->
-	<div class="row">
-		<div class="col-sm-6">		       				    
-    	   <h3 class="text-muted text-sm text-left" id="cityEvents"></h3>
-  		</div>
-  	</div>     
-  <div class="row">    		
-    	<div class="col-sm-12" id="eventItems"> </div>  
-  </div>    		
-  <!-- Weather data for current day		 			 -->
-<!-- 	<div class="row">
-		<div class="panel-body">		
-		<table class="table table-hover" id='weather-table'>
-       		<div class= "panel panel-primary" id= "informationBoard">
-        	 looking into setting the weather data into panel below.
-				  <div class="col-md-4  m-t-5">
-				     <div class="panel-heading">Your Up-to-date Weather 	Information</div>
-				        <h3 id="temprature">Temprature in &#8451; </h3>
-				        <h3 id="humidity">Humidity: </h3>
-				        <h3 id="wind">Wind Speed: in mph: </h3>
-				     </div>
-      		</div>    
-	 		<thead>
-			    <tr>
-			   		<th>Location</th>
-			    	<th>Temperature</th>
-			    </tr>
-	 		</thead>
-	 		<tbody></tbody>
-	 	</table>
-    	</div>
-	</div> -->
-<!--5 day weather data-->
-	<div class="row">
+			<div class='row' id='slider'>
+			<ul class="slides">
+			  	<li class = "slide"><img src="img/Turkey1.jpg"/></li>
+			  	<li class = "slide"><img src="img/HongKong1.jpg"/></li>
+			  	<li class = "slide"><img src="img/LasAngelas1.jpg"/></li>
+			  	<li class = "slide"><img src="img/MurfreesboroTN1.jpg"/></li>
+			  	<li class = "slide"><img src="img/ChicagoIL1.jpg"/></li>
+				<li class = "slide"><img src="img/NewOrleansLA1.jpg"/></li>
+			 </ul>
+	    	</div>	
+			<!-- search box and location weather -->
+		  		<div class="row">
+		  		<form>
+		            <div class ="col-sm-3 offset-sm-4">
+		            	<div class="input-group">
+		            		<input class="form-control" id="location" type="text" placeholder="Enter City, town or village">
+		            		<span class="input-group-btn">
+		            			<button class="btn btn-secondary" id="submit" type="button">Go!</button>
+		            		</span>
+		            	</div>
+		            </div>
+		  			 <div class="col-sm-4">	
+		  			 	<div class="text-info">	
+							<table class="table text-center" id='weather-table'></table>
+						</div>	
+		 			</div>			
+				</form>	
+				</div>
+					   
+		<!-- events carousel section 		 			 -->
+		<div class="row">
+			<div class="col-sm-6">		       				    
+	    	   <h3 class="text-muted text-sm text-left" id="cityEvents"></h3>
+	  		</div>
+	  	</div>     
+	  <div class="row">    		
+	    	<div class="col-sm-12" id="eventItems"> </div>  
+	  </div>    		
+	  <!-- Weather data for current day		 			 -->
+	<!-- 	<div class="row">
 			<div class="panel-body">		
-			<table class="table table-hover" id='forecast-table'>
-	    		<thead>
-				      <tr>
-				      	<th></th>
-				        <th>High</th>
-				        <th>Low</th>
-				        <th>Forecast</th>
-				        <th>Percent Humidity</th>
-				     </tr>
-	    		</thead>
-	    		<tbody></tbody>
-	  		</table>
-     	</div>
-	</div>
-<!--modal alert for incorrect user input-->
-	<div id="alertModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Errors Found!</h4>
-            </div>
-            <div class="modal-body">
-                <p></p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-default" data-dismiss="modal">
-                    Close</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+			<table class="table table-hover" id='weather-table'>
+	       		<div class= "panel panel-primary" id= "informationBoard">
+	        	 looking into setting the weather data into panel below.
+					  <div class="col-md-4  m-t-5">
+					     <div class="panel-heading">Your Up-to-date Weather 	Information</div>
+					        <h3 id="temprature">Temprature in &#8451; </h3>
+					        <h3 id="humidity">Humidity: </h3>
+					        <h3 id="wind">Wind Speed: in mph: </h3>
+					     </div>
+	      		</div>    
+		 		<thead>
+				    <tr>
+				   		<th>Location</th>
+				    	<th>Temperature</th>
+				    </tr>
+		 		</thead>
+		 		<tbody></tbody>
+		 	</table>
+	    	</div>
+		</div> -->
+	<!--5 day weather data-->
+		<div class="row">
+				<div class="panel-body">		
+				<table class="table table-hover" id='forecast-table'>
+		    		<thead>
+					      <tr>
+					      	<th></th>
+					        <th>High</th>
+					        <th>Low</th>
+					        <th>Forecast</th>
+					        <th>Percent Humidity</th>
+					     </tr>
+		    		</thead>
+		    		<tbody></tbody>
+		  		</table>
+	     	</div>
+		</div>
+	<!--modal alert for incorrect user input-->
+		<div id="alertModal" class="modal fade">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button class="close" data-dismiss="modal">&times;</button>
+	                <h4 class="modal-title">Errors Found!</h4>
+	            </div>
+	            <div class="modal-body">
+	                <p></p>
+	            </div>
+	            <div class="modal-footer">
+	                <button class="btn btn-default" data-dismiss="modal">
+	                    Close</button>
+	            </div>
+	        </div><!-- /.modal-content -->
+	    </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
-</div>
-	 <footer class="navbar navbar-inverse fixed">
-     <div class="text-center footer text-info">
-       <span class="text-info"> Copyright &copy; 2017 The BootCamp Team</span>
- 		 </div> 
-   </footer>
+	</div>
+	    <div class = "footer-container">
+		 <footer class="navbar-fluid">
+	        <div class="text-center footer text-info">
+	           <span class="text-info"> Copyright &copy; 2017 The BootCamp Team</span>
+	 		 </div> 
+	     </footer>
+	   </div>
 </body>
 </html>

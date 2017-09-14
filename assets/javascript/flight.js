@@ -42,7 +42,7 @@ function startSlider(){
 // startSlider();
 function placesSearch(){
 	var input = $("#location").html();
-	var autocomplete = new google.maps.places.Autocomplete(input);
+	var autoComplete = new google.maps.place.autoComplete(input);
 }
 function clearEvents(){
 	$("#eventItems").empty();
@@ -53,7 +53,8 @@ function clearEvents(){
   //function that will call the weather api given the insert it into the query 
 function findWeatherInCity (destinationCity, callback) {
 	var APIKey = "166a433c57516f51dfab1f7edaed8413";
-	var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + destinationCity + "&appid=" + APIKey;
+	var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + destinationCity + 
+	                "&appid=" + APIKey;
 	console.log('@ findWeatherInCity func '+queryURL);
 	$.ajax({
 		url: queryURL,
@@ -74,7 +75,8 @@ function findWeatherInCity (destinationCity, callback) {
 function findForecast (destinationCity, callback) {
 	var APIKey = "166a433c57516f51dfab1f7edaed8413";
 	// var location = $(destinationLatest).attr("data-location");
-	var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + destinationCity + "&appid=" + APIKey;
+	var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + destinationCity + 
+	               "&appid=" + APIKey;
 $.ajax({
 	url: queryURL,
 	method: "GET"
@@ -151,7 +153,8 @@ function slickThings() {
 //&expand=event.venue
 function events (destinationCity) {
 	console.log('@ events func '+destinationCity);
-	var queryURL = "https://www.eventbriteapi.com/v3/events/search/?location.address="+destinationCity+"&token=MOX2TZYUBRDINF24GULS";
+	var queryURL = "https://www.eventbriteapi.com/v3/events/search/?location.address="
+	                +destinationCity+"&token=MOX2TZYUBRDINF24GULS";
 	console.log('@ events func '+queryURL);
 	$.ajax({
 		url: queryURL,
@@ -201,7 +204,8 @@ function callAllApis(destinationCity){
 });
 	findForecast(destinationCity, function(date, temperaturemin, temperatureMax, weather, humidity){
 	// $("#forecast-table").empty();
-	$("#forecast-table").append("<tr><td>" + date + "</td><td>" + temperaturemin  + "</td><td>" + temperatureMax + "</td><td>" + weather +  "</td><td>" + humidity + "</td></tr>");
+	$("#forecast-table").append("<tr><td>" + date + "</td><td>" + temperaturemin  + 
+		"</td><td>" + temperatureMax + "</td><td>" + weather +  "</td><td>" + humidity + "</td></tr>");
 });
 	$("#location").val('');	
 	
