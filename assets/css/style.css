@@ -28,24 +28,28 @@
 padding-left: 4px;
 } 
 
-.bg-info {
- margin-bottom: -50px;
-	
-}
+
+h1, .text-muted{
+	text-align: center;
+	font-family: Helvetica, Helvetica Neue, Arial
+	font-size: 3em;
+	line-height: 23px
+
 body{
 	background-color: #3e4444;
+	font-family: Helvetica, Helvetica Neue, Arial
+	font-size: 20px;
+	line-height: 26px;
 }
-
 .panel-heading{
 	text-align: center;
 	padding-top: 20px;
 }
 .panel-primary{
 	margin-top: 20px;
-
 }
 .input-group{
-	margin-top: 20px
+	margin-top: 10px
 }
 h6 {
 	text-overflow: ellipsis;
@@ -54,6 +58,84 @@ h6 {
   height: 50px;
 }
 .footer {
+  padding: 7px;
+	clear:bottom;
+	height:60px;
+    background-color:#3e4444 ;
+    border-top:10px solid  #3b3a30;
+}
+.navbar-fluid{
+	bottom-margin":-50px;
+}
+.jumbotron-fluid{
+	background-color: #3e4444; 
+	color: white;
+	border-bottom:10px solid  #3b3a30;	
+}
+#weather-table{
+	padding-top: 30px;
+}
+/*========================================
+  Media Queries
+==========================================*/
+@media only screen and (min-width: 480px) {
+  .slides{
+	float:left;
+	width: 30%;
+	margin:0 0 0 5%;
+	padding: 25px 1%;
+	margin-bottom: 0;
+
+}
+  .slides li:first-child {
+  	margin-left: 0;
+  }
+
+  .slides li:last-child {
+  	margin-right: 0
+}
+
+@media only screen and (min-width: 768px),
+       only screen and (min-width: 700px) and (orientation:landscape){
+
+	.title {
+		float: left;
+		font-size: 1.4em;
+	}
+    .slides{
+    	float left;
+    	width: 57%;
+    }
+   #eventItems{
+		
+   }
+}
+@media only screen and (min-width: 1140px) {
+	.bg-info{
+		width:auto;
+		margin: 0 auto;
+	}
+
+	h1{
+		font-size: 2em;
+	}
+}
+
+/*========================================
+  Clearfix
+==========================================*/
+
+.clearfix:before,
+.clearfix:after{
+	content: '';
+	dispaly: table;
+}
+.clearfix:after{
+	clear: both;
+}
+.clearfix {
+*zoom : 1;
+/* =======
 	padding: 11px;
 	position: relative;
 	bottom: -100px;
@@ -66,4 +148,4 @@ h6 {
 .imgTop {
 	width: 2000px;
 	height: auto;
-}
+}*/
