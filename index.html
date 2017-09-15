@@ -14,9 +14,9 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 	<body class="bg-info">
-		<div class="container-fluid">
+		<div class="wrapper container-fluid">
 			<div class="jumbotron-fluid row header">
-				<h1 class= " text-muted">Your City Guide <small class= "text-info text-muted"> | The spot to be</small></h1>
+				<h1 class= "text-muted">Your City Guide <small class="text-info text-muted"> | The spot to be</small></h1>
 			</div>
 			<div class='row' id='slider'>
 			<ul class="slides">
@@ -52,25 +52,8 @@
 	   <div class="text-center">    		
     	<div class="col-sm-12"  id="eventItems"> </div>  
   </div>     		
-	<!--5 day weather data-->
-		<div class="row">
-				<div class="panel-body">		
-				<table class="table table-hover" id='forecast-table'>
-		    		<thead>
-					      <tr>
-					      	<th></th>
-					        <th>High</th>
-					        <th>Low</th>
-					        <th>Forecast</th>
-					        <th>Percent Humidity</th>
-					     </tr>
-		    		</thead>
-		    		<tbody></tbody>
-		  		</table>
-	     	</div>
-		</div>
 	<!--modal alert for incorrect user input-->
-		<div id="alertModal" class="modal fade">
+	<div id="alertModal" class="modal fade">
 	    <div class="modal-dialog">
 	        <div class="modal-content">
 	            <div class="modal-header">
@@ -88,22 +71,12 @@
 	    </div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 
+	</div>	
+		<div class ="push"> </div>
+		<div class="footer">
+	    <div class="footContent text-center text-info"> Copyright &copy; 201The BootCamp Team
+	        </div>
 	</div>
-	    <div class = "footer-container">
-		 <footer class="navbar-fluid">
-	        <div class="text-center footer text-info">
-	           <span class="text-info"> Copyright &copy; 2017 The BootCamp Team</span>
-	 		 </div> 
-	     </footer>
-	   </div>
-<!-- =======
-</div>
-  <div class="push"></div>
-	 <footer class="footer navbar navbar-inverse fixed">
-     <div class="text-center  text-info">
-       <span class="text-info"> Copyright &copy; 2017 The BootCamp Team</span>
- 		 </div> 
-   </footer>
- -->
+	
 </body>
 </html>
