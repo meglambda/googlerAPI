@@ -1,39 +1,17 @@
-* {
-	box-sizing: border-box; 
-}
-
 #slider{
 	width: auto;
-	height: 360px;
+	height: 400px;
 	overflow: hidden;
 }
 
 #slider .slides{
 	display: block;
 	width: 12000px;
-	height: 360px;
+	height: 400px;
 	margin: 0;
 	padding: 0;
 }
- html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-.wrapper {
-	min-height: 100%;
-	margin-bottom: -50px;
-}
-.footer {
-	margin-top: 120px;
-	height: 40px;
-	width: 100%;
-    background-color:#3e4444;
-    border-top:10px solid  #3b3a30;
-}
-.push{
-	height: 50px;
-}
+
 #slider .slide{
 	float: left;
 	list-style-type: none;
@@ -41,28 +19,100 @@
 	width: 2000px;
 	height: 400px;
 }
+#map {
+        width: 280px;
+        height: 400px;
+        float: left;
+      }
+#listing {
+	position: absolute;
+	width: 200px;
+	height: 300px;
+	overflow: auto;
+	left: 300px;
+	/*top: 100%;*/
+	cursor: pointer;
+	overflow-x: hidden;
+}
+#findhotels {
+	position: relative;
+	text-align: right;
+	width: 100px;
+	font-size: 14px;
+	padding: 4px;
+	z-index: 5;
+	background-color: #fff;
+}
+/*#locationField {
+	position: relative;
+	left: 300px;
+	width: 140px;
+	top: 0px;
+	z-index: 5;
+	background-color: #fff;
+}*/
+#controls {
+  position: relative;
+  bottom: 100px;
+  left: 20px;
+  width: 140px;
+  top: 0px;
+  z-index: 5;
+ 	background-color: #fff;
+ }
+ #autocomplete {
+  width: 300px;
+  }
+	#country {
+  width: 100%;
+   }
+ .placeIcon {
+    width: 20px;
+    height: 34px;
+    margin: 4px;
+      }
+  .hotelIcon {
+    width: 24px;
+    height: 24px;
+      }
+ #resultsTable {
+  border-collapse: collapse;
+  width: 240px;
+ 	bottom: 10px;
+      }
+ #rating {
+  font-size: 13px;
+  font-family: Arial Unicode MS;
+  }
+.iw_table_row {
+        height: 18px;
+      }
+      .iw_attribute_name {
+        font-weight: bold;
+        text-align: right;
+      }
+      .iw_table_icon {
+        text-align: right;
+      }
 #weather-table {
 	position: relative;
-	top: -5px;
+	top: 17px;
 }
-#fiveDayWeather td {
-	padding-left: 11px;
+
+#forecast-table tr {
+padding-left: 4px;
 } 
-.header {
-	background-color: #3e4444;
-	border-bottom:10px solid  #3b3a30;
-	height: 60px;
-}
+
+
 h1, .text-muted{
 	text-align: center;
 	font-family: Helvetica, Helvetica Neue, Arial
 	font-size: 3em;
 	line-height: 23px
-
-body {
-	min-height: 100%;
+}
+body{
 	background-color: #3e4444;
-	font-family: Helvetica, 'Helvetica Neue', Arial;
+	font-family: Helvetica, Helvetica Neue, Arial
 	font-size: 20px;
 	line-height: 26px;
 }
@@ -79,24 +129,38 @@ body {
 h6 {
 	text-overflow: ellipsis;
 }
-img {
-	height: 200px;
-	width: auto;
+.push {
+  height: 50px;
+}
+.footer {
+  padding: 7px;
+	clear:bottom;
+	height:60px;
+    background-color:#3e4444 ;
+    border-top:10px solid  #3b3a30;
+}
+.navbar-fluid{
+	bottom-margin":-50px;
+}
+.jumbotron-fluid{
+	background-color: #3e4444; 
+	color: white;
+	border-bottom:10px solid  #3b3a30;	
 }
 #weather-table{
-	padding-top: 0px;
+	padding-top: 30px;
 }
-
 /*========================================
   Media Queries
 ==========================================*/
-@media screen and (min-width: 480px) {
+@media only screen and (min-width: 480px) {
   .slides{
 	float:left;
-	width: 40%;
+	width: 30%;
 	margin:0 0 0 5%;
 	padding: 25px 1%;
 	margin-bottom: 0;
+
 }
   .slides li:first-child {
   	margin-left: 0;
@@ -104,39 +168,22 @@ img {
 
   .slides li:last-child {
   	margin-right: 0
-	}
-	.wrapper {
-	min-height: 100%;
-	margin-bottom: -11px;
 }
-	.footer {
-		margin-top: 55px;
-		height: 10px;
-		width: 100%;
-	    background-color:#3e4444;
-	    border-top:1px solid  #3b3a30;
-	}
-	.push{
-		height: 11px;
-	}
-	.eventSlide {
-		height: 200%;
-	}
-	.fiveDayWeather, .fiveDay {
-    	visibility: hidden;
-	}
-}
-@media screen and (min-width: 768px),
+
+@media only screen and (min-width: 768px),
        only screen and (min-width: 700px) and (orientation:landscape){
 
-	.header {
+	.title {
 		float: left;
-		font-size: 122.4em;
+		font-size: 1.4em;
 	}
     .slides{
     	float left;
     	width: 57%;
     }
+   #eventItems{
+		
+   }
 }
 @media only screen and (min-width: 1140px) {
 	.bg-info{
@@ -152,6 +199,7 @@ img {
 /*========================================
   Clearfix
 ==========================================*/
+
 .clearfix:before,
 .clearfix:after{
 	content: '';
@@ -161,10 +209,8 @@ img {
 	clear: both;
 }
 .clearfix {
- zoom : 1;
-}
-
- /*.footer {  
+*zoom : 1;
+/* =======
 	padding: 11px;
 	position: relative;
 	bottom: -100px;
@@ -176,5 +222,5 @@ img {
 
 .imgTop {
 	width: 2000px;
-	height: auto;*/
-}
+	height: auto;
+}*/

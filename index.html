@@ -14,9 +14,9 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 	<body class="bg-info">
-		<div class="wrapper container-fluid">
+		<div class="container-fluid">
 			<div class="jumbotron-fluid row header">
-				<h1 class= "text-muted">Your City Guide <small class="text-info text-muted"> | The spot to be</small></h1>
+				<h1 class= " text-muted">Your City Guide <small class= "text-info text-muted"> | The spot to be</small></h1>
 			</div>
 			<div class='row' id='slider'>
 			<ul class="slides">
@@ -33,10 +33,20 @@
 	  		<form>
 	            <div class ="col-sm-3 offset-sm-4">
 	            	<div class="input-group">
-	            		<input class="form-control" id="location" type="text" placeholder="Enter City, town or village">
-	            		<span class="input-group-btn">
-	            			<button class="btn btn-secondary" id="submit" type="submit">Go!</button>
-	            		</span>
+	            		<input id="autocomplete" placeholder="Enter a city" type="text" />
+	            		<!-- <span class="input-group-btn">
+	            			<button class="btn  -->
+	            				<div id="controls">
+     								 <select id="country">
+							        <option value="all" >All</option>
+							        <option value="us" selected >U.S.A.</option>
+							        <option value="uk">United Kingdom</option>
+							        <option value="mx">Mexico</option>
+							     		<option value="es">Spain</option>
+
+      						</select>
+    						</div>
+	            		<!-- </span> -->
 	            	</div>
 	            </div>
 	        </form>
@@ -52,8 +62,50 @@
 	   <div class="text-center">    		
     	<div class="col-sm-12"  id="eventItems"> </div>  
   </div>     		
+	<!--5 day weather data-->
+		<div class="row">
+				<div class="panel-body">		
+				<table class="table table-hover" id='forecast-table'>
+		    		<thead>
+					      <tr>
+					      	<th></th>
+					        <th>High</th>
+					        <th>Low</th>
+					        <th>Forecast</th>
+					        <th>Percent Humidity</th>
+					     </tr>
+		    		</thead>
+		    		<tbody></tbody>
+		  		</table>
+	     	</div>
+		</div>
+
+		<div id="findhotels">
+      Hotels Nearby
+    </div>
+    <div id="map"></div>
+
+    <div id="listing">
+      <table id="resultsTable">
+        <tbody id="results"></tbody>
+      </table>
+    </div>
+    <div style="display: none">
+      <div id="info-content">
+        <table>
+          <tr id="iw-url-row" class="iw_table_row">
+            <td id="iw-icon" class="iw_table_icon"></td>
+            <td id="iw-url"></td>
+          </tr>
+          <tr id="iw-address-row" class="iw_table_row">
+            <td class="iw_attribute_name">Address:</td>
+            <td id="iw-address"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
 	<!--modal alert for incorrect user input-->
-	<div id="alertModal" class="modal fade">
+		<div id="alertModal" class="modal fade">
 	    <div class="modal-dialog">
 	        <div class="modal-content">
 	            <div class="modal-header">
@@ -71,12 +123,24 @@
 	    </div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 
-	</div>	
-		<div class ="push"> </div>
-		<div class="footer">
-	    <div class="footContent text-center text-info"> Copyright &copy; 201The BootCamp Team
-	        </div>
 	</div>
-	
+	    <div class = "footer-container">
+		 <footer class="navbar-fluid">
+	        <div class="text-center footer text-info">
+	           <span class="text-info"> Copyright &copy; 2017 The BootCamp Team</span>
+	 		 </div> 
+	     </footer>
+	   </div>
+<!-- =======
+</div>
+  <div class="push"></div>
+	 <footer class="footer navbar navbar-inverse fixed">
+     <div class="text-center  text-info">
+       <span class="text-info"> Copyright &copy; 2017 The BootCamp Team</span>
+ 		 </div> 
+   </footer>
+ -->
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf9XZ8yTvubt78WgImQ2YJ747sVGFK2aM&libraries=places"
+        async defer></script>
 </body>
 </html>
