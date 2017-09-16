@@ -259,7 +259,7 @@ function clearEvents(){
       console.log("The read failed: " + errorObject.code);
     });
 	}
-calling the ip-api to get a general idea of user location which is then used to call the events & weather APIs to prepopulate the page on load
+// calling the ip-api to get a general idea of user location which is then used to call the events & weather APIs to prepopulate the page on load
  function geolocate(destinationCity) {
  queryURL = 'https://geoip.nekudo.com/api/';
 	$.ajax({
