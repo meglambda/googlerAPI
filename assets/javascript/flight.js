@@ -244,35 +244,35 @@ function clearEvents(){
 	$("#weather-table").empty();
 	console.log('clear events executed');
 }
-// //on page reload, this block is to load data based on last location searched by the user or the location provided by the ip-api in the case a search hasn't been recorded//
-	// if(sessionStorage.getItem('userInputReceived') !== '1') {
-	// geolocate();
-	// console.log(userInputReceived);
-	// console.log(sessionStorage.getItem('userInputReceived'));
-	// } else {
-	// 	console.log('ready to retrieve stored location');
-	// db.ref().on("value",function(snapshot){
-	// 	console.log('@ load func '+snapshot.val().destinationCity);
-	// 	destinationCity = snapshot.val().destinationCity;
-	// 	callAllApis(destinationCity);
-	// },function(errorObject) {
- //      console.log("The read failed: " + errorObject.code);
- //    });
-	// }
-//calling the ip-api to get a general idea of user location which is then used to call the events & weather APIs to prepopulate the page on load
- // function geolocate(destinationCity) {
- // queryURL = 'https://geoip.nekudo.com/api/';
-	// $.ajax({
-	// 	url: queryURL,
-	// 	method: "GET"
-	// }).done(function(response){
-	// 	console.log(response.city);
-	// 	destinationCity = response.city;
-	// console.log('@geoLocate location is '+destinationCity);
- //   callAllApis(destinationCity);
-	// });		
-	// }
-// ,callback
+//on page reload, this block is to load data based on last location searched by the user or the location provided by the ip-api in the case a search hasn't been recorded//
+	if(sessionStorage.getItem('userInputReceived') !== '1') {
+	geolocate();
+	console.log(userInputReceived);
+	console.log(sessionStorage.getItem('userInputReceived'));
+	} else {
+		console.log('ready to retrieve stored location');
+	db.ref().on("value",function(snapshot){
+		console.log('@ load func '+snapshot.val().destinationCity);
+		destinationCity = snapshot.val().destinationCity;
+		callAllApis(destinationCity);
+	},function(errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
+	}
+calling the ip-api to get a general idea of user location which is then used to call the events & weather APIs to prepopulate the page on load
+ function geolocate(destinationCity) {
+ queryURL = 'https://geoip.nekudo.com/api/';
+	$.ajax({
+		url: queryURL,
+		method: "GET"
+	}).done(function(response){
+		console.log(response.city);
+		destinationCity = response.city;
+	console.log('@geoLocate location is '+destinationCity);
+   callAllApis(destinationCity);
+	});		
+	}
+
 function events (placeSearched) {
 	console.log('@ events func '+ placeSearched);
 	var queryURL = "https://www.eventbriteapi.com/v3/events/search/?location.address="+ placeSearched +"&token=MOX2TZYUBRDINF24GULS";
